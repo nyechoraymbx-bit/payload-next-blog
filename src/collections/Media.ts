@@ -1,4 +1,4 @@
-import { generateBlurDataURL, isEligibleForBlurDataURL } from '../../media/lib/generate-blur-data-url'
+import { generateBlurDataURL, isEligibleForBlurDataURL } from '../scripts/lib/generate-blur-data-url'
 import type { CollectionConfig } from 'payload'
 
 export const Media: CollectionConfig = {
