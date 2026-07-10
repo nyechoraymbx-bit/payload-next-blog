@@ -1,5 +1,7 @@
 import React from 'react'
 import './styles.css'
+import './globals.css'
+import { ThemeProvider } from 'next-themes'
 
 export const metadata = {
   description: 'A blank template using Payload in a Next.js app.',
@@ -10,9 +12,12 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
   const { children } = props
 
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body>
-        <main>{children}</main>
+           <ThemeProvider>
+              <main>{children}</main>
+           </ThemeProvider>
+        
       </body>
     </html>
   )
