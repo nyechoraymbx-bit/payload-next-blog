@@ -20,21 +20,15 @@ export const Media: CollectionConfig = {
     },
   ],
   upload: true,
+
+
   hooks: {
-      beforeChange: [
-         async ({ operation ,data , req}) => {
-            if (operation !== "create") return data
-            //1. Check for eligibility
-            if(! isEligibleForBlurDataURL(req.file?.mimetype)) return data
-            //2. if it is, generate blur hash
-            const base64 = await generateBlurDataURL(req.file?.data)
-            if (!base64) return  data
-            //3. Set it to data.blurDataUrl
-            data.blurDataUrl = base64
-            console.log(`Generated blur data URL for ${data.filename}`)
-            // 4. Return data
-            return data
-          },
-      ],
-  },
+  beforeChange: [
+    async ({ operation, data }) => {
+      if (operation !== "create") return data
+
+      return data
+    },
+  ],
+},
 }
