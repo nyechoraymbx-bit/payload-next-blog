@@ -1,14 +1,13 @@
 import { withPayload } from '@payloadcms/next/withPayload'
-import withPlaiceholder from "@plaiceholder/next";
 import type { NextConfig } from 'next'
 import path from 'path'
 import { fileURLToPath } from 'url'
 
-const __filename = fileURLToPath(import.meta.url)
-const dirname = path.dirname(__filename)
+const filename = fileURLToPath(import.meta.url)
+const dirname = path.dirname(filename)
 
 const nextConfig: NextConfig = {
-images: {
+  images: {
     localPatterns: [
       {
         pathname: '/api/media/file/**',
@@ -21,18 +20,10 @@ images: {
       },
     ],
   },
-  webpack: (webpackConfig) => {
-    webpackConfig.resolve.extensionAlias = {
-      '.cjs': ['.cts', '.cjs'],
-      '.js': ['.ts', '.tsx', '.js', '.jsx'],
-      '.mjs': ['.mts', '.mjs'],
-    }
 
-    return webpackConfig
-  },
   turbopack: {
     root: path.resolve(dirname),
   },
 }
 
-export default withPlaiceholder(withPayload(nextConfig, { devBundleServerPackages: false}))
+export default withPayload(nextConfig)

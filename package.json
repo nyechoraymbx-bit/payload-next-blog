@@ -18,7 +18,7 @@
   "dependencies": {
     "@payloadcms/db-postgres": "3.85.1",
     "@payloadcms/next": "3.85.1",
-    "@payloadcms/richtext-lexical": "^3.85.1",
+    "@payloadcms/richtext-lexical": "3.85.1",
     "@payloadcms/ui": "3.85.1",
     "@plaiceholder/next": "^3.0.0",
     "@t3-oss/env-nextjs": "^0.13.11",

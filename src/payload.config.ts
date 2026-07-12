@@ -14,6 +14,7 @@ import { Articles } from './collections/Articles'
 import { env } from "@/env";
 import { ArticleAuthors } from './collections/ArticleAuthors'
 
+
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
@@ -42,5 +43,4 @@ export default buildConfig({
     },
   }),
   sharp,
-  plugins: [],
 })
