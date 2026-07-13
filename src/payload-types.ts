@@ -174,6 +174,21 @@ export interface Article {
   id: number;
   title: string;
   slug: string;
+  content: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
   contentSummary: string;
   readTimeInMins?: number | null;
   coverImage: number | Media;
@@ -325,6 +340,7 @@ export interface MediaSelect<T extends boolean = true> {
 export interface ArticlesSelect<T extends boolean = true> {
   title?: T;
   slug?: T;
+  content?: T;
   contentSummary?: T;
   readTimeInMins?: T;
   coverImage?: T;

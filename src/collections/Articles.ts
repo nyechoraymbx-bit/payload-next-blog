@@ -42,11 +42,11 @@ export const Articles: CollectionConfig = {
         beforeValidate: [generateSlugHook],
       },
     },
-    //{
-      //name:"content",
-      //type:"richText",
-      //required: true,
-    //},
+    {
+      name:"content",
+      type:"richText",
+      required: true,
+    },
 
     {
       name:"contentSummary",
