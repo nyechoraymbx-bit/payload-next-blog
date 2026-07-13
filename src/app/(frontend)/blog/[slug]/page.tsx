@@ -1,6 +1,6 @@
 import Image from "next/image"
 import { notFound } from "next/navigation"
-
+export const dynamic = "force-dynamic"
 import { getArticleBySlug } from "@/collections/fetchers"
 import { ArticleMetadata } from "../_components/article-metadata"
 import { RichText } from "@payloadcms/richtext-lexical/react"
@@ -19,12 +19,13 @@ export default async function BlogPostPage({
   }
 
   if (
-    typeof article.coverImage === "number" ||
-    typeof article.author === "number" ||
-    typeof article.author.avatar === "number"
-  ) {
-    notFound()
-  }
+  typeof article.coverImage === "number" ||
+  typeof article.author === "number" ||
+  !article.author ||
+  typeof article.author.avatar === "number"
+) {
+  notFound()
+}
 
   return (
     <article className="mx-auto max-w-4xl px-6 py-12">
